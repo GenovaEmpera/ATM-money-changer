@@ -2,12 +2,13 @@
 
 ATM money-changer is a change-making machine that gives out change for a specific amount of money.
 
-Conditions:
-1.	Infinite amount of coins
-2.	Available denominations:  [50, 10, 5, 1]
-3.	Gives out the minimum number of coins using the maximum number of denominations.
+## Conditions:
+
+* Infinite amount of coins
+* Available denominations:  [50, 10, 5, 1]
+* Gives out the minimum number of coins using the maximum number of denominations.<br/>
 <i>For instance, if you input 20 the machine gives out [10x1, 5x1, 1x5]. Not [10x2] or [10x1, 5x2].</i>
-4. Maximum sum length - 5.
+* Maximum sum length - 5.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
 
