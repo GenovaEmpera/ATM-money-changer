@@ -1,0 +1,32 @@
+<div class="wrapper">
+  <header>
+    <h2>Welcome to ATM</h2>
+  </header>
+  <main>
+    <div class="result-container">
+      <div class="sum-container">{{sum}}</div>
+      <div class="nominal-container">
+        <div class="nominal">
+          <p class="nominal-value">50</p>
+          <p class="nominal-counter" *ngIf="change.length!=0">{{change[0]}}</p>
+        </div>
+        <div class="nominal">
+          <p class="nominal-value">10</p>
+          <p class="nominal-counter" *ngIf="change.length!=0">{{change[1]}}</p>
+        </div>
+        <div class="nominal">
+          <p class="nominal-value">5</p>
+          <p class="nominal-counter" *ngIf="change.length!=0">{{change[2]}}</p>
+        </div>
+        <div class="nominal">
+          <p class="nominal-value">1</p>
+          <p class="nominal-counter" *ngIf="change.length!=0">{{change[3]}}</p>
+        </div>
+      </div>
+    </div>
+    <app-form (submitSum)="runATM($event)"></app-form>
+    <div class="error" *ngIf="error">
+      {{error}}
+    </div>
+  </main>
+</div>

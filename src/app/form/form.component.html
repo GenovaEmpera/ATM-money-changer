@@ -1,0 +1,9 @@
+<form class="form-fields" [formGroup]="sumForm" (ngSubmit)="getSum()">
+  <div class="form-field-container">
+    <input class="form-control" type="text" placeholder="Enter the sum to change"
+      formControlName="sumInput"
+      maxlength="5"
+      required>
+  </div>
+  <button type="submit" class="btn" [disabled]="!sumForm.valid">Get change!</button>
+</form>
