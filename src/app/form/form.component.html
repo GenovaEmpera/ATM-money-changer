@@ -1,9 +1,18 @@
-<form class="form-fields" [formGroup]="sumForm" (ngSubmit)="getSum()">
+<form class="form-fields" [formGroup]="sumForm" (ngSubmit)="sumForm.valid && getSum()">
   <div class="form-field-container">
     <input class="form-control" type="text" placeholder="Enter the sum to change"
       formControlName="sumInput"
       maxlength="5"
+      pattern="[0-9]*"
       required>
   </div>
-  <button type="submit" class="btn" [disabled]="!sumForm.valid">Get change!</button>
+  <button type="submit" class="btn">Get change!</button>
+  <div *ngIf="sumForm.invalid && (sum.dirty || sum.touched)">
+  <div class="error" *ngIf="sum.errors.required">
+    Please, enter the sum to change!
+  </div>
+  <div class="error" *ngIf="sum.errors.pattern">
+    You should enter numbers only!
+  </div>
+  </div>
 </form>

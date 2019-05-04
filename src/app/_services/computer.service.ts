@@ -1,7 +1,13 @@
-export class ComputerComponent {
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+
+export class ComputerService {
   nominals: number[] = [50, 10, 5, 1];
 
-  computeChange(cash: number) {
+  public computeChange(cash: number) {
     let change: number[] = [];
     for (let nom of this.nominals) {
       let nomCounter = Math.floor(cash / nom); // amount to give out

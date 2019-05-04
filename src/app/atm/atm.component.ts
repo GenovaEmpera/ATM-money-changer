@@ -1,7 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 
-import { ComputerComponent } from './computer.component';
-import { ValidatorComponent } from './validator.component';
+import { ComputerService } from '../_services/computer.service';
 
 @Component({
   selector: 'app-atm',
@@ -9,31 +8,22 @@ import { ValidatorComponent } from './validator.component';
   styleUrls: ['./atm.component.css']
 })
 export class AtmComponent implements OnInit {
-  computer: ComputerComponent;
-  validator: ValidatorComponent;
-  change: number[];
-  sum: number;
-  error: string;
+  private change: number[];
+  private sum: number;
 
-  constructor() {
+  constructor(private computerService: ComputerService) {
     this.change = [];
     this.sum = 0;
-    this.error = '';
-    this.computer = new ComputerComponent();
-    this.validator = new ValidatorComponent();
   }
 
   ngOnInit() {}
 
   runATM(inputSum: any) {
     this.resetATM();
-    this.error = this.validator.validateSumInput(inputSum);
-    if (this.error === '') {
-      this.change = this.computer.computeChange(inputSum);
-      this.sum = inputSum * 1;
-    }
+    this.change = this.computerService.computeChange(inputSum);
+    this.sum = inputSum * 1;
   }
-  resetATM() {
+  private resetATM() {
     this.change = [];
     this.sum = 0;
   }
