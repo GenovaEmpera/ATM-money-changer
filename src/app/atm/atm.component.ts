@@ -8,8 +8,8 @@ import { ComputerService } from '../_services/computer.service';
   styleUrls: ['./atm.component.css']
 })
 export class AtmComponent implements OnInit {
-  private change: number[];
-  private sum: number;
+  public change: number[];
+  public sum: number;
 
   constructor(private computerService: ComputerService) {
     this.change = [];
